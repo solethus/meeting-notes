@@ -12,6 +12,8 @@ type Note struct {
 	CoverURL string `json:"cover_url"`
 }
 
+// SaveNote handles storing a meeting note
+//
 //encore:api public method=POST path=/note
 func SaveNote(ctx context.Context, note *Note) (*Note, error) {
 	// Save the note to the database.
@@ -30,6 +32,8 @@ func SaveNote(ctx context.Context, note *Note) (*Note, error) {
 	return note, nil
 }
 
+// GetNote takes care of fetching a meeting note from our database given an id
+//
 //encore:api public method=GET path=/note/:id
 func GetNote(ctx context.Context, id string) (*Note, error) {
 	note := &Note{ID: id}
